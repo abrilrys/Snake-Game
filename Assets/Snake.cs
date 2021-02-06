@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class Snake : MonoBehaviour
 {
-
+    
     Vector2 dir = Vector2.right;
     bool ate = false;
     public GameObject tailPrefab;
@@ -13,7 +14,7 @@ public class Snake : MonoBehaviour
     void Start()
     {
         // Move the Snake every 300ms
-        InvokeRepeating("Move", 0.3f, 0.3f);
+        InvokeRepeating("Move", .1f, .1f);
     }
 
     void Update()
@@ -69,7 +70,12 @@ public class Snake : MonoBehaviour
 
         else
         {
-            print("You lose");
+           // print("You lose");
+            //Time.timeScale = 0;
+            //enabled = false;
+            SceneManager.LoadScene("GameOver");
         }
     }
+
+   
 }
